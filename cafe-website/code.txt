@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Stall</title>
+
+
+
+    <script>
+        function endprog() {
+            document.getElementById('select').disabled = true;
+            document.getElementById('no').disabled = true;
+            document.getElementById('butt2').disabled = true;
+            document.getElementsByClassName('choicee').disabled = true;
+
+        }
+        function startprog() {
+            document.getElementById('select').disabled = false;
+            document.getElementById('no').disabled = false;
+            document.getElementById('butt2').disabled = false;
+
+        }
+
+
+        var dept = null; // global variable
+        // this will be manipulated by the check function
+
+
+
+        function calc() {
+            if (dept === null) {
+                alert("Please verify UID first");
+                return; // exits the function without further execution
+            }
+            var choice = document.getElementById('select');
+            var num = document.getElementById('no');
+            var base = 0;
+            var disc = 0;
+            if (choice.value === "Tea") {
+                base = num.value * 10;
+            }
+            else if (choice.value === "Coffee") {
+                base = num.value * 12;
+            }
+            else {
+                base = num.value * 15;
+            }
+
+            if (dept === "IT") {
+                disc = base * 0.005;
+            }
+            else {
+                disc = base * 0.025;
+            }
+
+            const resultBox = document.getElementById('bill');
+            resultBox.innerHTML =
+                '<table border="2" class="table">' +
+                '<tr class="outline">' +
+                '<th>Product</th>' +
+                '<th>Quantity</th>' +
+                '<th>Gross Price</th>' +
+                '<th>Discount</th>' +
+                '</tr>' +
+                '<tr class="row">' +
+                '<td class="td">' + choice.value + '</td>' +
+                '<td class="td">' + num.value + '</td>' +
+                '<td class="td">' + base + '</td>' +
+                '<td class="td">' + disc + '</td></tr>' +
+                '</table>' +
+                '<div>' +
+                '<h4 id="price">Total Price to be Paid : ' + (base - disc) + '</h4></div>';
+
+            // "<h3> DEPT: " + dept + "</h3>" +
+            // "<div class='container'><h3 class='col-sm-3' style='display:inline'> Product </h3>" +
+            // "<h3 class='col-sm-3' style='display:inline'> Quantity </h3>" +
+            // "<h3 class='col-sm-3' style='display:inline'>Gross Price </h3>" +
+            // "<h3 class='col-sm-3' style='display:inline'>Discount </h3></div>" +
+            // "<h2 id='price'>Total Price: " + (base - disc) + "</h2>" +
+            // "<img src='money.png' alt='money' id='mon' width='100px'>";
+        };
+
+        function check() {
+            var uid = document.getElementById('uid');
+            var pattern = /^230[5-6]{1}0[0-9]{2}$/;
+            var flag = false;
+            var temp;
+            var message = document.getElementById('small');
+            message.style.visibility = "hidden";
+
+            if (pattern.test(uid.value.trim())) {
+                flag = true;
+
+                startprog();            // if valid then let user continue
+
+                if (uid.value.substring(2, 4) === "05") {
+                    temp = "Valid UID ! Welcome IT student";
+                    dept = "IT";
+                }
+                else {
+                    temp = "Valid UID ! Welcome Minor Student";
+                    dept = "Minors";
+                }
+            }
+            else {
+                temp = "Invalid UID !";
+                flag = false;
+                endprog();              // if not valid, halt the user
+            }
+            message.textContent = temp;
+            message.style.visibility = "visible";
+
+            // this function executes its content after a specified delay
+            setTimeout(function ()//anonymous function2
+            {
+                message.style.visibility = "hidden";
+            }, 3000); // 3000 ms = 3 sec
+
+            return dept;
+        };
+    </script>
+
+    <style>
+        body {
+            background-color: rgb(255, 208, 137);
+        }
+        /* Bill Details */
+        .table {
+            border: 1px solid brown;
+            border-radius: 11px;
+            background-color: #3b1616;
+            color: white;
+            width: 100%;
+            margin: auto;
+
+            td {
+                background-color: #ffb155;
+            }
+        }
+
+        #bill {
+            /* Styling for the Bill Box */
+            color: white;
+            width: 49.45%;
+            text-align: center;
+            border-radius: 1%;
+            position: relative;
+            bottom: -46px;
+            margin: auto;
+            z-index: -1;
+        }
+        #price {
+            background-color: rgb(39 11 2);
+            border-radius: 12px;
+        }
+
+        /* Main Box */
+        .main1 {
+            background-color: rgb(39, 11, 2);
+            background-size: 50%;
+            background-position: center;
+            border-radius: 20px;
+            text-align: center;
+            width: 50%;
+            margin: auto;
+            position: relative;
+            color: white;
+            top: 46px;
+        }
+        /* combined styling for the elements inside the main box */
+        .in {
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 7px;
+        }
+
+
+        /* for the main price display */
+        
+        /* Quantity  */
+        #no {
+            margin-right: 26px;
+        }
+
+
+        /* background images */
+        #snoop {
+            width: 17%;
+            transform: rotate(-14deg);
+            position: absolute;
+            top: 135px;
+            left: 502px;
+            filter: invert(1);
+            opacity: 20%;
+        }
+        #dolly {
+            width: 16%;
+            transform: rotate(21deg);
+            position: absolute;
+            top: 119px;
+            right: 475px;
+            filter: invert(1);
+            opacity: 20%;
+        }
+        #back {
+            width: 26%;
+            transform: rotate(0deg);
+            position: absolute;
+            bottom: -15px;
+            right: 230px;
+            filter: invert(1);
+            opacity: 40%;
+        }
+        /* the three tea and coffee on the top */
+        #mid {
+            width: 30%;
+            transform: rotate(0deg);
+            position: absolute;
+            top: -90px;
+            left: 220px;
+            filter: invert(1);
+        }
+        #mid1 {
+            width: 30%;
+            transform: rotate(0deg);
+            position: absolute;
+            top: -90px;
+            left: 53px;
+            filter: invert(1);
+        }
+
+        #mid2 {
+            width: 30%;
+            transform: rotate(0deg);
+            position: absolute;
+            top: -90px;
+            left: 388px;
+            filter: invert(1);
+        }
+
+
+        /* Styling for the Message that displays on UID verification */
+        #small {
+            position: absolute;
+            top: 31vh;
+            left: 64vw;
+            background-color: white;
+            color: red;
+            border: 2px solid #383737;
+            border-radius: 14px;
+            padding: 2px;
+        }
+        #butt {
+            margin-right: -70px;
+            cursor: pointer;
+        }
+        #butt2{
+            cursor: pointer;
+        }
+
+
+        /* all radio buttons */
+        #select{
+            margin: auto;
+        }
+
+        /* Logo styling */
+        #logo{
+            position: absolute;
+            width: 18vw;
+            left: 3em;
+            top: 10em;
+        }
+        /* styling for right side space */
+        .stripes{
+            position: absolute;
+            display: inline-block;
+            /* float: right;        float and absolute dont work together */
+            height: 100vh;
+            width: 3vw;
+            margin-top: -1.5vw;
+            z-index: -2;
+        }
+        #s1{
+            right: 1vw;
+            background-color: #ffc978;
+        }
+        #s2{
+            right: 5vw;
+            background-color: #ffbb55;
+        }
+        #s3{
+            right: 9vw;
+            background-color: #e09d38;
+        }
+        #s4{
+            right: 13vw;
+            background-color: #a37024;
+        }
+        #s5{
+            right: 17vw;
+            background-color: #795116;
+        }
+        #s6{
+            right: 21vw;
+            background-color: #412a08;
+        }
+        #s7{
+            right: 25vw;
+            background-color: #270b02;
+        }
+        
+    </style>
+</head>
+
+<body onload="endprog();">
+    <div>
+        <img src="logo.png" alt="tea_logo" id="logo">
+    </div>
+    <div class="stripes" id="s1"></div>
+    <div class="stripes" id="s2"></div>
+    <div class="stripes" id="s3"></div>
+    <div class="stripes" id="s4"></div>
+    <div class="stripes" id="s5"></div>
+    <div class="stripes" id="s6"></div>
+    <div class="stripes" id="s7"></div>
+
+    <div class="main1">
+        <form method="post" id="form">
+            <h1>HeavenHood</h1>
+
+            <label for="uid">UID</label>
+            <input type="text" name="id" id="uid" class="in" placeholder="Enter your ID" required>
+            <button id="butt" type="button" value="Verify" onclick="check();" class="in">Check it</button>
+
+            <img src="b2.png" alt="snoop tea" id="snoop" width="100px">
+            <img src="b1.png" alt="Tea logo" id="mid" width="100px">
+            <img src="b1.png" alt="Tea logo" id="mid1" width="100px">
+            <img src="b1.png" alt="Tea logo" id="mid2" width="100px">
+
+            <img src="b3.png" alt="dolly" id="dolly" width="100px">
+            <img src="a3.png" alt="back" id="back" width="100px">
+
+
+            <br>
+
+            <label for="select">Choice</label>
+            <select name="tea" id="select" class="in">
+                <option value="Tea">Tea</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Milk">Milk</option>
+            </select>
+            <br>
+            <!-- <div class="choicee">
+            <label for="select">Tea</label>
+            <input type="radio" id="select" name="r">
+
+            <label for="select2">Coffee</label>
+            <input type="radio" id="select2" name="r">
+
+            <label for="select3">Milk</label>
+            <input type="radio" id="select3" name="r">
+            </div> -->
+
+
+            <label for="no">Quantity</label>
+            <input type="number" id="no" placeholder="number of cups" class="in">
+            <br>
+            <button id="butt2" type="button" value="calculate" onclick="calc();" class="in">Bill Please</button>
+        </form>
+        <h1>Bill Details</h1>
+    </div>
+    <small id="small">
+    </small>
+    <div id="bill">
+    </div>
+</body>
+
+</html>
