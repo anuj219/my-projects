@@ -1,0 +1,31 @@
+httpd.conf - config -> search for listen  -->do listen 80 
+       -> search for server name --> do localhost:80
+       ctrl 
+
+httpd-ssl.conf ssl -  lsiten 443   or 4443
+    search for server name --> do 443
+    save
+
+restart xampp
+done
+
+
+innerText - js
+.text() - jquery
+
+innerHTML - js
+.html()  - Jquery
+
+.value
+.val();
+
+
+When you're using XAMPP for hosting your website, `localhost` refers to your own computer. It's a hostname that means "this computer" in networking terms. 
+
+The `8080` part is a **port number**. Ports are like channels that your computer uses to communicate with other devices or services. By default, web servers use port `80` for HTTP traffic. However, if port `80` is already in use or you want to run multiple web servers on the same machine, you can use a different port, like `8080`.
+
+So, when you type `localhost:8080` in your browser, you're telling it to connect to your local machine (your computer) on port `8080`, where your XAMPP server is listening for requests.
+
+In networking terms, “local machine” or “localhost” refers to the computer you’re currently working on.
+So, when you access localhost:8080, you’re actually accessing a server that’s running on your own computer.
+your computer is acting as both the server (hosting the website) and the client (viewing the website

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.cdnfonts.com/css/amazon-ember" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        body {
+            background-color: rgb(0, 0, 45);
+            color: white;
+            font-family: 'Amazon Ember Display', sans-serif;
+            font-family: 'Amazon Ember', sans-serif;
+            font-family: 'Amazon Ember Cd RC', sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+        }
+
+        #nav {
+            /* the box that contains header, search bar, and sorting */
+            border: 2px solid white;
+            background-color: rgb(0, 0, 30);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .left{
+                display: flex;
+                flex-direction: row;
+            }
+            h1{
+                margin-left: 20px;
+            }
+            .button {
+                padding: 10px;
+                border: 1px solid yellow;
+                border-radius: 10px;
+            }
+            .logo{
+                width: 13%;
+                display: inline;
+            }
+        }
+
+        .content {
+            /* styling for all the elements inside movie-item box */
+            position: relative;
+            padding-left: 30px;
+            margin-left: 10%;
+
+            .fa {
+                color: yellow;
+            }
+        }
+
+        .content2 {
+            padding-left: 30px;
+            margin-left: 10%;
+            display: none;
+        }
+
+        .title,
+        .image {
+            padding-left: 0px !important;
+            padding-bottom: 5px;
+            margin: auto !important;
+        }
+
+        .image {
+            /* Image of each movie */
+            /* width: 12vw;
+            height: 38vh; */
+            width: 45%;
+            height: 45%;
+        }
+
+        @media only screen and (max-width: 670px) {
+            html {
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            body {
+                height: auto;
+            }
+
+            .image {
+                width: 40%;
+                height: auto;
+            }
+
+            #movie_list {
+                flex-direction: column !important;
+                flex: 1;
+            }
+
+            #nav {
+                flex-direction: column !important;
+
+                .button {
+                    margin: 10px;
+                }
+            }
+
+            .movie-item {
+                overflow: scroll;
+                max-width: none !important;
+            }
+        }
+
+        /* the div that CONTAINS each movie */
+        #movie_list {
+            display: flex;
+            flex-direction: row;
+            /* justify-content: space-around !important;    gets overrided by flex:1 in movie-item */
+            padding-left: 0px;
+            flex-wrap: wrap;
+        }
+
+        .active {
+            flex: 1;
+            align-items: start;
+            min-width: none !important;
+            max-width: none !important;
+
+            img {
+                width: 20%;
+                height: 40%;
+                margin-left: 10% !important;
+                padding-left: 0 !important;
+            }
+        }
+
+        .trailer {
+            border:2px dotted transparent;
+            position: relative;
+            left: 20%;
+            top: 35%;
+            width: 50%;
+            height: 51%;
+        }
+
+        /* each movie */
+        .movie-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            flex: 1;
+            /*have to do this, or the div will take as much space as the content takes up*/
+
+            border: 1px solid white;
+            border-radius: 20px;
+            margin: 1.3px;
+            min-width: 300px;
+            /* if more movies get added, they wont neccesarily add to the same line*/
+            max-width: 24.5vw;
+            /* so when you search for something, or there is only one item in the row, that item wont take full width due to flex:1, i will limit it to have maximum width of 24.5 vw(in my case, to match other items)*/
+
+            transition: box-shadow 0.5s ease;
+
+            .mov_rating{
+                padding-bottom: 10px;
+            }
+        }
+
+        .movie-item:hover {
+            cursor: pointer;
+            box-shadow: 10px 10px 50px white;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div id="nav">
+            <div class="left">
+                <h1 id="home">Movies</h1>
+                <img src="a.png" alt="logo" class="logo">
+            </div>
+            <div>
+            <input type="text" name="search" id="search_box" class="button" placeholder="search for a movie...">
+            <button type="button" id="sort_year" class="button">Sort by year</button>
+            <button type="button" id="sort_rating" class="button">Sort by rating</button>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <div class="main">
+            <ul id="movie_list">
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

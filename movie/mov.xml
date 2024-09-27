@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE movies[
+    <!ELEMENT movies (movie+)>    <!-- + ye nahi karta to movie tag ko ek hi baar aane deta parser -->
+    <!ELEMENT movie (title, year, director, genre, rating, img, cast, description, trailer)>
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT year (#PCDATA)>
+    <!ELEMENT director (#PCDATA)>
+    <!ELEMENT genre (#PCDATA)>
+    <!ELEMENT rating (#PCDATA)>
+    <!ELEMENT img (CDATA)>
+    <!ELEMENT cast (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT trailer (CDATA)>
+]>
+<movies>
+    <movie>
+        <title>Iron Man</title>
+        <year>2008</year>
+        <director>Jon Favreau</director>
+        <genre>Action, Adventure, Sci-Fi</genre>
+        <rating>7.9</rating>
+        <img>https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_.jpg</img>
+        <cast>Robert Downey Jr., Gwyneth Paltrow, Terrence Howard</cast>
+        <description>After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.</description>
+        <trailer>https://www.youtube.com/embed/8ugaeA-nMTc?autoplay=1</trailer>
+    </movie>
+    <movie>
+        <title>The Dark Knight</title>
+        <year>2008</year>
+        <director>Christopher Nolan</director>
+        <genre>Action, Crime, Drama</genre>
+        <rating>9.0</rating>
+        <img><![CDATA[https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg]]></img>
+        <cast>Christian Bale, Heath Ledger, Aaron Eckhart</cast>
+        <description>When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/EXeTwQWrcwY]]></trailer>
+    </movie>
+    <movie>
+        <title>Forrest Gump</title>
+        <year>1994</year>
+        <director>Robert Zemeckis</director>
+        <genre>Drama, Romance</genre>
+        <rating>8.8</rating>
+        <img><![CDATA[https://m.media-amazon.com/images/S/pv-target-images/2d0c9e38968936e6711c7fb2bc7895b82d8bb9178b5a854e14dffa4b17b88487.jpg]]></img>
+        <cast>Tom Hanks, Robin Wright, Gary Sinise</cast>
+        <description>The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/bLvqoHBptjg]]></trailer>
+    </movie>
+    <movie>
+        <title>Inception</title>
+        <year>2010</year>
+        <director>Christopher Nolan</director>
+        <genre>Action, Adventure, Sci-Fi</genre>
+        <rating>8.8</rating>
+        <img><![CDATA[https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781608870158/inception-9781608870158_lg.jpg]]></img>
+        <cast>Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page</cast>
+        <description>A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/YoHD9XEInc0]]></trailer>
+    </movie>
+    <movie>
+        <title>The Matrix</title>
+        <year>1999</year>
+        <director>Lana Wachowski, Lilly Wachowski</director>
+        <genre>Action, Sci-Fi</genre>
+        <rating>8.7</rating>
+        <img><![CDATA[https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg]]></img>
+        <cast>Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss</cast>
+        <description>A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/vKQi3bBA1y8]]></trailer>
+    </movie>
+    <movie>
+        <title>Pathaan</title>
+        <year>2023</year>
+        <director>Siddharth Anand</director>
+        <genre>Action, Thriller</genre>
+        <rating>7.0</rating>
+        <img><![CDATA[https://www.cinejosh.com/reviewsimg/big/pathaan-review_b_2501231242.jpg]]></img>
+        <cast>Shah Rukh Khan, Deepika Padukone, John Abraham</cast>
+        <description>An Indian spy takes on the leader of a group of mercenaries who have nefarious plans to target his homeland.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/vqu4z34wENw]]></trailer>
+    </movie>
+    <movie>
+        <title>Brahmastra Part One: Shiva</title>
+        <year>2022</year>
+        <director>Ayan Mukerji</director>
+        <genre>Action, Adventure, Fantasy</genre>
+        <rating>5.6</rating>
+        <img><![CDATA[https://upload.wikimedia.org/wikipedia/en/e/ea/Brahmastra_Part_One_Shiva.jpg]]></img>
+        <cast>Ranbir Kapoor, Alia Bhatt, Amitabh Bachchan</cast>
+        <description>This is the story of Shiva who sets out in search of love and self-discovery. During his journey, he has to face many evil forces to protect the universe.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/BUjXzrgntcY]]></trailer>
+    </movie>
+    <movie>
+        <title>Bhool Bhulaiyaa 2</title>
+        <year>2022</year>
+        <director>Anees Bazmee</director>
+        <genre>Comedy, Horror</genre>
+        <rating>6.8</rating>
+        <img><![CDATA[https://upload.wikimedia.org/wikipedia/en/2/23/Bhool_Bhulaiyaa_2_film_poster.jpg]]></img>
+        <cast>Kartik Aaryan, Kiara Advani, Tabu</cast>
+        <description>When a young man encounters a spirit, he must seek the help of a quirky psychiatrist to solve the mystery of a haunted mansion.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/P2KRKxAb2ek]]></trailer>
+    </movie>
+    <movie>
+        <title>Gangubai Kathiawadi</title>
+        <year>2022</year>
+        <director>Sanjay Leela Bhansali</director>
+        <genre>Biography, Crime, Drama</genre>
+        <rating>7.0</rating>
+        <img><![CDATA[https://upload.wikimedia.org/wikipedia/en/8/89/Gangubai_Kathiawadi_film_poster.jpg]]></img>
+        <cast>Alia Bhatt, Shantanu Maheshwari, Vijay Raaz</cast>
+        <description>The story of Gangubai Kothewali, a powerful woman in the 1960s who rose to prominence in the underworld and politics of Mumbai.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/6L6XqWoS8tw]]></trailer>
+    </movie>
+    <movie>
+        <title>Drishyam 2</title>
+        <year>2022</year>
+        <director>Abhishek Pathak</director>
+        <genre>Crime, Drama, Thriller</genre>
+        <rating>8.4</rating>
+        <img><![CDATA[https://upload.wikimedia.org/wikipedia/en/9/9e/Drishyam_2_2022_film_poster.jpg]]></img>
+        <cast>Ajay Devgn, Akshaye Khanna, Tabu</cast>
+        <description>A gripping tale of a man who must protect his family from the consequences of a crime they committed years ago.</description>
+        <trailer><![CDATA[https://www.youtube.com/embed/7h0vM8Yt3zI]]></trailer>
+    </movie>
+</movies>
+
